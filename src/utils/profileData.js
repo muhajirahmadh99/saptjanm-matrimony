@@ -2,7 +2,7 @@ export const profileItems = [
   {
     id: 1,
     name: "John Doe",
-    avatar: "../logo512.png",
+    avatar: "./logo512.png",
     age: "25",
     description:
       "lorem ipsum dolor sit amet, consectetur adip lorem, sed diam nonumy eirmod tempor, lorem ipsum dolor sit amet, consectetur adip",
@@ -10,7 +10,7 @@ export const profileItems = [
   {
     id: 2,
     name: "Jane Smith",
-    avatar: "../logo512.png",
+    avatar: "./logo512.png",
     age: "25",
     description:
       "lorem ipsum dolor sit amet, consectetur adip lorem, sed diam nonumy eirmod tempor, lorem ipsum dolor sit amet, consectetur adip",
@@ -18,7 +18,7 @@ export const profileItems = [
   {
     id: 3,
     name: "Jane Smith",
-    avatar: "../logo512.png",
+    avatar: "./logo512.png",
     age: "25",
     description:
       "lorem ipsum dolor sit amet, consectetur adip lorem, sed diam nonumy eirmod tempor, lorem ipsum dolor sit amet, consectetur adip",
@@ -26,7 +26,7 @@ export const profileItems = [
   {
     id: 4,
     name: "Jane Smith",
-    avatar: "../logo512.png",
+    avatar: "./logo512.png",
     age: "25",
     description:
       "lorem ipsum dolor sit amet, consectetur adip lorem, sed diam nonumy eirmod tempor, lorem ipsum dolor sit amet, consectetur adip",
@@ -34,7 +34,7 @@ export const profileItems = [
   {
     id: 5,
     name: "Jane Smith",
-    avatar: "../logo512.png",
+    avatar: "./logo512.png",
 
     age: "25",
     description:
@@ -43,7 +43,7 @@ export const profileItems = [
   {
     id: 6,
     name: "Jane Smith",
-    avatar: "../logo512.png",
+    avatar: "./logo512.png",
     age: "25",
     description:
       "lorem ipsum dolor sit amet, consectetur adip lorem, sed diam nonumy eirmod tempor, lorem ipsum dolor sit amet, consectetur adip",
@@ -51,7 +51,7 @@ export const profileItems = [
   {
     id: 7,
     name: "Jane Smith",
-    avatar: "../logo512.png",
+    avatar: "./logo512.png",
     age: "25",
     description:
       "lorem ipsum dolor sit amet, consectetur adip lorem, sed diam nonumy eirmod tempor, lorem ipsum dolor sit amet, consectetur adip",
@@ -59,7 +59,7 @@ export const profileItems = [
   {
     id: 8,
     name: "Jane Smith",
-    avatar: "../logo512.png",
+    avatar: "./logo512.png",
     age: "25",
     description:
       "lorem ipsum dolor sit amet, consectetur adip lorem, sed diam nonumy eirmod tempor, lorem ipsum dolor sit amet, consectetur adip",
@@ -67,7 +67,7 @@ export const profileItems = [
   {
     id: 9,
     name: "Jane Smith",
-    avatar: "../logo512.png",
+    avatar: "./logo512.png",
     age: "25",
     description:
       "lorem ipsum dolor sit amet, consectetur adip lorem, sed diam nonumy eirmod tempor, lorem ipsum dolor sit amet, consectetur adip",
@@ -75,7 +75,7 @@ export const profileItems = [
   {
     id: 10,
     name: "Jane Smith",
-    avatar: "../logo512.png",
+    avatar: "./logo512.png",
     age: "25",
     description:
       "lorem ipsum dolor sit amet, consectetur adip lorem, sed diam nonumy eirmod tempor, lorem ipsum dolor sit amet, consectetur adip",
