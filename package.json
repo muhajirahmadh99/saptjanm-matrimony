@@ -1,5 +1,5 @@
 {
-
+  "homepage": "https://muhajirahmadh99.github.io/saptjanm-matrimony",
   "name": "saptjanm-matrimony",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build --configuration production --base-href https://muhajirahmadh99.github.io/saptjanm-matrimony/",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
