@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.f8265366.css",
-    "main.js": "/static/js/main.970d1b46.js",
-    "static/js/685.b1591e19.chunk.js": "/static/js/685.b1591e19.chunk.js",
-    "index.html": "/index.html"
+    "main.css": "/saptjanm-matrimony/static/css/main.f8265366.css",
+    "main.js": "/saptjanm-matrimony/static/js/main.b2f9243b.js",
+    "static/js/685.b1591e19.chunk.js": "/saptjanm-matrimony/static/js/685.b1591e19.chunk.js",
+    "index.html": "/saptjanm-matrimony/index.html"
   },
   "entrypoints": [
     "static/css/main.f8265366.css",
-    "static/js/main.970d1b46.js"
+    "static/js/main.b2f9243b.js"
   ]
 }
