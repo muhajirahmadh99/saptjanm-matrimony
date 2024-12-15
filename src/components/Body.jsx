@@ -29,7 +29,7 @@ const Body = () => {
     <div>
       <Header />
       <div className="flex justify-between p-4 mt-3">
-        <div className=""></div>
+        <div className="">frtdff</div>
       </div>
       <CardsProfile />
       <Footer />

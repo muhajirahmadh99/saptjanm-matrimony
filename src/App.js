@@ -12,7 +12,6 @@ function App() {
         <Route path="/content" element={<Body />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        {/* Add more routes here if needed */}
       </Routes>
     </div>
   );
