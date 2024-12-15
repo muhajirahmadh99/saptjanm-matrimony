@@ -7,13 +7,16 @@ import { BrowserRouter } from "react-router-dom";
 import "flowbite";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import { LoadingProvider } from "./layouts/LoadingContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter basename="/saptjanm-matrimony">
       <Provider store={appStore}>
-        <App />
+        <LoadingProvider>
+          <App />
+        </LoadingProvider>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

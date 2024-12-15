@@ -5,117 +5,136 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLoading } from "../layouts/LoadingContext";
+
 const Login = () => {
-  const [isSignInForm, setSignInForm] = useState(true);
+  const { setLoading } = useLoading();
+  const [isSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const email = useRef(null);
   const navigate = useNavigate();
   const password = useRef(null);
-  const toggleSignInForm = () => {
-    setSignInForm(!isSignInForm);
-  };
+  const { loading } = useLoading();
   const handleButtonClick = () => {
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
     if (message) return;
-    // Perform login logic here
+
+    setLoading(true);
+
     if (!isSignInForm) {
-      //sign up
       createUserWithEmailAndPassword(
         auth,
         email.current.value,
         password.current.value
       )
         .then((userCredential) => {
-          // Signed up
           const user = userCredential.user;
           console.log(user);
-          // ...
+          setLoading(false);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorCode + ": " + errorMessage);
-          // ..
+          setLoading(false);
         });
     } else {
-      // sign in
       signInWithEmailAndPassword(
         auth,
         email.current.value,
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
           console.log(user);
           navigate("/content");
-          // ...
+          setLoading(false);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorCode + ": " + errorMessage);
+          setLoading(false);
         });
     }
   };
+
   return (
-    <div className="bg-center flex justify-center items-center h-screen bg-blend-multiply bg-[url('https://img.freepik.com/free-photo/navratri-decoration-with-candles_23-2151193771.jpg?t=st=1734095791~exp=1734099391~hmac=62d69254a201fd9a2d93158b3e86dc7f3629b0641027fe850d76d78cfcbba29a&w=1800')]">
-      <div className="">
-        <form className=" bg-black w-96 h-full px-4 py-10 opacity-80 rounded-lg" onSubmit={(e) => e.preventDefault()}>
-          {!isSignInForm && (
-            <div className="mb-5">
-              <label className="block mb-2 text-xl font-medium text-white dark:text-white">
-                Enter Your Full Name
+    <div className="flex min-h-full flex-1 flex-col justify-center bg-center h-screen bg-[url('https://img.freepik.com/free-vector/indian-wedding-character-collection_23-2148631132.jpg?t=st=1734259426~exp=1734263026~hmac=d2dc182e6a4fe9440cf6a475cf8160cc1a2be8b180cd576337c140735c3095d2&w=1380')]">
+      <div className="opacity-80 bg-pink-300 w-96 px-4 py-8 mx-auto rounded-lg">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+          <h2 className="text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+            Sign in to your account
+          </h2>
+        </div>
+
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
+                Email address
               </label>
-              <input
-                type="text"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter Your Full Name"
-                required
-              />
+              <div className="mt-2">
+                <input
+                  ref={email}
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
             </div>
-          )}
-          <div className="mb-5">
-            <label className="block mb-2 text-xl font-medium text-white dark:text-white">
-              Your email
-            </label>
-            <input
-              ref={email}
-              type="email"
-              id="email"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="your@email.com"
-              required
-            />
-          </div>
-          <div className="mb-5">
-            <label className="block mb-2 text-xl font-medium text-white dark:text-white">
-              Your password
-            </label>
-            <input
-              ref={password}
-              autoComplete="on"
-              type="password"
-              id="password"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              required
-            />
-          </div>
-          <div className="text-red-300">{errorMessage}</div>
-          <button
-            onClick={handleButtonClick}
-            className="text-white my-2 bg-red-700 hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            {isSignInForm ? "Sign In" : "Sign Up"}
-          </button>
-          <div className="text-white text-lg my-4 " onClick={toggleSignInForm}>
-            {isSignInForm
-              ? "New to SaptJanm? Sign up Now"
-              : "Already Registered? Sign in Now"}
-          </div>
-        </form>
+
+            <div>
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="password"
+                  className="block text-sm/6 font-medium text-gray-900"
+                >
+                  Password
+                </label>
+                <div className="text-sm">
+                  <Link className="font-semibold text-indigo-600 hover:text-indigo-500">
+                    Forgot password?
+                  </Link>
+                </div>
+              </div>
+              <div className="mt-2">
+                <input
+                  ref={password}
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  autoComplete="current-password"
+                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+            <div className="text-red-800">{errorMessage}</div>
+            {loading && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
+                <div className="loader"></div>
+              </div>
+            )}
+            <div>
+              <button
+                type="submit"
+                onClick={handleButtonClick}
+                className="flex w-full justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Sign in
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
