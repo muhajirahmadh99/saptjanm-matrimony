@@ -28,9 +28,7 @@ const Body = () => {
   return (
     <div>
       <Header />
-      <div className="flex justify-between p-4 mt-3">
-        <div className="">frtdff</div>
-      </div>
+
       <CardsProfile />
       <Footer />
     </div>

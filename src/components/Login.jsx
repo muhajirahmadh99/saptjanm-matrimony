@@ -63,9 +63,9 @@ const Login = () => {
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center bg-center h-screen bg-[url('https://img.freepik.com/free-vector/indian-wedding-character-collection_23-2148631132.jpg?t=st=1734259426~exp=1734263026~hmac=d2dc182e6a4fe9440cf6a475cf8160cc1a2be8b180cd576337c140735c3095d2&w=1380')]">
-      <div className="opacity-80 bg-pink-300 w-96 px-4 py-8 mx-auto rounded-lg">
+      <div className="opacity-80 bg-dark w-96 px-4 py-8 mx-auto rounded-lg">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <h2 className="text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+          <h2 className="text-center text-2xl/9 font-bold tracking-tight text-white">
             Sign in to your account
           </h2>
         </div>
@@ -75,7 +75,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm/6 font-medium text-gray-900"
+                className="block text-sm/6 font-medium text-white"
               >
                 Email address
               </label>
@@ -96,12 +96,12 @@ const Login = () => {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-white"
                 >
                   Password
                 </label>
                 <div className="text-sm">
-                  <Link className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <Link className="font-semibold text-white hover:text-indigo-500">
                     Forgot password?
                   </Link>
                 </div>
@@ -128,7 +128,7 @@ const Login = () => {
               <button
                 type="submit"
                 onClick={handleButtonClick}
-                className="flex w-full justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-md bg-gray-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in
               </button>

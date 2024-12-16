@@ -15,7 +15,7 @@ const ImageUpload = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-10 mb-4"
+              className="size-10 mb-4 text-white"
             >
               <path
                 strokeLinecap="round"
@@ -25,11 +25,8 @@ const ImageUpload = () => {
             </svg>
 
             <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-semibold">Click to upload Photo</span>
+              <span className="font-semibold text-white">Click to upload Photo</span>
             </p>
-            {/* <p className="text-xs text-gray-500 dark:text-gray-400">
-              SVG, PNG, JPG or GIF (MAX. 800x400px)
-            </p> */}
           </div>
           <input id="dropzone-file" type="file" className="hidden" />
         </label>

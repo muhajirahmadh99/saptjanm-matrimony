@@ -5,88 +5,26 @@ import ProfileModal from "../layouts/ProfileModal";
 const Home = () => {
   return (
     <div className="">
-      <nav className="bg-pink-300 border-gray-200 dark:bg-gray-900">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <Link
-            to={"/"}
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-          >
-            <span className="self-center text-2xl text-red-800 font-semibold whitespace-nowrap dark:text-white">
-              Saptjanm Matrimony
-            </span>
-          </Link>
-          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <Link to={"/login"}>
-              <button
-                type="button"
-                className="text-white bg-pink-600 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Login
-              </button>
-            </Link>
-          </div>
-          <div
-            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-            id="navbar-cta"
-          >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li>
-                <Link
-                  className="block py-2 px-3 md:p-0 text-red-800 rounded hover:text-red-800 md:dark:text-blue-500"
-                  aria-current="page"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:text-red-800  md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white  dark:border-gray-700">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:text-red-800  md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white  dark:border-gray-700">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:text-red-800  md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white  dark:border-gray-700">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
       <div className="hero">
         <section className="bg-center bg-no-repeat bg-[url('https://images.pexels.com/photos/17834/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-gray-700 bg-blend-multiply">
+          <div className="flex justify-between px-4 py-4">
+            <div className=""></div>
+            <div className="">
+              <Link to={"/login"}>
+                <button className="bg-gray-300 text-black font-medium p-2 w-24 rounded-md cursor-pointer">
+                  Login
+                </button>
+              </Link>
+            </div>
+          </div>
           <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
               We invest in the world’s potential
             </h1>
             <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-              Here at Flowbite we focus on markets where technology, innovation,
-              and capital can unlock long-term value and drive economic growth.
+              Now find your partner... Finding your perfect match just became easier..
             </p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-              <button className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                Join Now
-                <svg
-                  className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                  />
-                </svg>
-              </button>
               <ProfileModal />
             </div>
           </div>
