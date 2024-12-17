@@ -141,6 +141,9 @@ const Home = () => {
         </section>
       </div>
       <div className="testimonial">
+        <h2 className="mt-4 text-4xl font-extrabold tracking-tight text-center text-red-500 dark:text-gray-900">
+          Testimonial
+        </h2>
         <div className="flex justify-between items-center flex-wrap">
           <div className="">
             <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -151,10 +154,10 @@ const Home = () => {
                   <blockquote className="text-center text-xl/8 font-semibold text-gray-900 sm:text-2xl/9">
                     <p>
                       “
-                      <span className="text-2xl text-red-800 font-bold">
-                        Saptjanm Matrimony
+                      <span className="text-2xl text-red-800 font-bold me-1">
+                        Saptjanm Matrimony 
                       </span>
-                      Company, we take pride in our commitment to providing
+                     Company, we take pride in our commitment to providing
                       exceptional customer service and high-quality personalised
                       services. Our goal is to exceed our customers'
                       expectations and make their experience with us a positive

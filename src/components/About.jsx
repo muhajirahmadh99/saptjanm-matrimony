@@ -23,7 +23,7 @@ const About = () => {
           </div>
           <div className="w-full lg:w-8/12 ">
             <img
-              className="w-full h-full"
+              className="w-full h-full rounded-lg"
               src="https://img.freepik.com/free-vector/flat-hand-drawn-female-team-leader_52683-54824.jpg?t=st=1734377272~exp=1734380872~hmac=4bcd8b9c6d6e593e47fb58ba3b4994b700d7d6e1f29b3ab98f2d0d5833b0d3e0&w=1380"
               alt="A group of People"
             />
@@ -49,12 +49,7 @@ const About = () => {
             <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 shadow-lg rounded-md">
               <div className="p-4 pb-6 flex justify-center flex-col items-center">
                 <img
-                  className="md:block hidden"
-                  src="./images/girl.png"
-                  alt="Alexa featured Img"
-                />
-                <img
-                  className="md:hidden block"
+                  className=""
                   src="./images/girl.png"
                   alt="Alexa featured Img"
                 />
@@ -64,13 +59,8 @@ const About = () => {
               </div>
               <div className="p-4 pb-6 flex justify-center flex-col items-center">
                 <img
-                  className="md:block hidden"
+                  className=""
                   src="./images/boy.png"
-                  alt="Olivia featured Img"
-                />
-                <img
-                  className="md:hidden block"
-                  src=".images/boy.png"
                   alt="Olivia featured Img"
                 />
                 <p className="font-medium text-xl leading-5 text-gray-800 mt-4">
@@ -79,12 +69,7 @@ const About = () => {
               </div>
               <div className="p-4 pb-6 flex justify-center flex-col items-center">
                 <img
-                  className="md:block hidden"
-                  src="./images/boy.png"
-                  alt="Liam featued Img"
-                />
-                <img
-                  className="md:hidden block"
+                  className=""
                   src="./images/boy.png"
                   alt="Liam featued Img"
                 />
@@ -94,12 +79,7 @@ const About = () => {
               </div>
               <div className="p-4 pb-6 flex justify-center flex-col items-center">
                 <img
-                  className="md:block hidden"
-                  src="./images/girl.png"
-                  alt="Elijah featured img"
-                />
-                <img
-                  className="md:hidden block"
+                  className=""
                   src="./images/girl.png"
                   alt="Elijah featured img"
                 />
