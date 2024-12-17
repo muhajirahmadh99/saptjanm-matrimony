@@ -20,6 +20,7 @@
     - Contact us Page for feedback like Something etc..
 # Libraries
     - I used the React Bootsrap library.
+    - I used the Tailwind Css.
     - I used the React Redux library. 
 # Authentication
     - I used the Firebase Authentication
