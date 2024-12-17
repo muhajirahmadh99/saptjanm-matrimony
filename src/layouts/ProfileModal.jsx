@@ -4,7 +4,6 @@ import { checkValidData } from "../utils/validate";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -13,6 +12,11 @@ const ProfileModal = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const nameRef = useRef(null);
+  const ageRef = useRef(null);
+  const dobRef = useRef(null);
+  const genderRef = useRef(null);
+  const descriptionRef = useRef(null);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
@@ -20,10 +24,15 @@ const ProfileModal = () => {
   const handleShow = () => setShow(true);
 
   const handleButtonClick = async () => {
+    const name = nameRef.current.value;
+    const age = ageRef.current.value;
+    const dob = dobRef.current.value;
+    const gender = genderRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
+    const description = descriptionRef.current.value;
 
-    const message = checkValidData(email, password);
+    const message = checkValidData(name, age, dob, gender, email, password, description);
     setErrorMessage(message);
     if (message) return;
 
@@ -70,6 +79,7 @@ const ProfileModal = () => {
                   Name
                 </label>
                 <input
+                  ref={nameRef}
                   type="text"
                   name="name"
                   id="name"
@@ -86,6 +96,7 @@ const ProfileModal = () => {
                   Age
                 </label>
                 <input
+                  ref={ageRef}
                   type="number"
                   id="age"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
@@ -101,6 +112,7 @@ const ProfileModal = () => {
                   DOB
                 </label>
                 <input
+                  ref={dobRef}
                   type="date"
                   id="dob"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
@@ -116,6 +128,7 @@ const ProfileModal = () => {
                   Gender
                 </label>
                 <select
+                  ref={genderRef}
                   id="gender"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
                 >
@@ -157,7 +170,7 @@ const ProfileModal = () => {
                   required=""
                 />
               </div>
-              <div className="text-red-800">{errorMessage}</div>
+              <div className="text-red-800 col-span-2">{errorMessage}</div>
 
               <div className="col-span-2">
                 <label
@@ -167,15 +180,17 @@ const ProfileModal = () => {
                   Profile Description
                 </label>
                 <textarea
+                  ref={descriptionRef}
                   id="description"
                   rows="4"
                   className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border "
                   placeholder="Write your profile description here"
+                  required=""
                 ></textarea>
               </div>
             </div>
             <button
-            type="submit"
+              type="submit"
               onClick={handleButtonClick}
               className="bg-gray-300 text-black font-medium p-2 w-24 rounded-md cursor-pointer"
             >

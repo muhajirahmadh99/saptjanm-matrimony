@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useLoading } from "../layouts/LoadingContext";
 // import { useNavigate } from "react-router-dom";
 const Login = () => {
   // setSignInForm
@@ -10,12 +11,14 @@ const Login = () => {
   const email = useRef(null);
   // const navigate = useNavigate();
   const password = useRef(null);
-  // const toggleSignInForm = () => {
-  //   setSignInForm(!isSignInForm);
-  // };
+  const { setLoading } = useLoading();
+  const { loading } = useLoading();
+
   const handleButtonClick = () => {
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
+    setLoading(true);
+
     if (message) return;
     // Perform login logic here
     if (!isSignInForm) {
@@ -29,12 +32,16 @@ const Login = () => {
           // Signed up
           const user = userCredential.user;
           console.log(user);
+          setLoading(false);
+
           // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorCode + ": " + errorMessage);
+          setLoading(false);
+
           // ..
         });
     }
@@ -62,6 +69,7 @@ const Login = () => {
   return (
     <div className="bg-center flex justify-center items-center h-screen bg-blend-multiply bg-[url('https://img.freepik.com/free-photo/navratri-decoration-with-candles_23-2151193771.jpg?t=st=1734095791~exp=1734099391~hmac=62d69254a201fd9a2d93158b3e86dc7f3629b0641027fe850d76d78cfcbba29a&w=1800')]">
       <div className="">
+
         <form
           className=" bg-black w-96 h-full px-4 py-10 opacity-80 rounded-lg"
           onSubmit={(e) => e.preventDefault()}
@@ -105,6 +113,11 @@ const Login = () => {
             />
           </div>
           <div className="text-red-300">{errorMessage}</div>
+          {loading && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
+            <div className="loader"></div>
+          </div>
+        )}
           <button
             onClick={handleButtonClick}
             className="text-white my-2 bg-red-700 hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

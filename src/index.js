@@ -7,7 +7,6 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import { LoadingProvider } from "./layouts/LoadingContext";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

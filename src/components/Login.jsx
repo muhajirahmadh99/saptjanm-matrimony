@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { checkValidData } from "../utils/validate";
+import { checkValidData } from "../utils/signInValidate";
 import { auth } from "../utils/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -62,81 +62,90 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center bg-center h-screen bg-[url('https://img.freepik.com/free-vector/indian-wedding-character-collection_23-2148631132.jpg?t=st=1734259426~exp=1734263026~hmac=d2dc182e6a4fe9440cf6a475cf8160cc1a2be8b180cd576337c140735c3095d2&w=1380')]">
-      <div className="opacity-80 bg-dark w-96 px-4 py-8 mx-auto rounded-lg">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <h2 className="text-center text-2xl/9 font-bold tracking-tight text-white">
-            Sign in to your account
-          </h2>
-        </div>
+    <section className="h-screen p-4">
+      <div className="h-full">
+        {/* <!-- Left column container with background--> */}
+        <div className="flex h-full flex-wrap items-center justify-center lg:gap-2">
+          <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+            <img
+              src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+              className="w-full"
+              alt="Sample image"
+            />
+          </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm/6 font-medium text-white"
-              >
-                Email address
-              </label>
-              <div className="mt-2">
-                <input
-                  ref={email}
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between">
+          {/* <!-- Right column container --> */}
+          <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
+            <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
+              <h2 className="text-center text-2xl/9 font-bold tracking-tight text-black">
+                Sign in to your account
+              </h2>
+              <div>
                 <label
-                  htmlFor="password"
-                  className="block text-sm/6 font-medium text-white"
+                  htmlFor="email"
+                  className="block text-sm/6 font-medium text-black"
                 >
-                  Password
+                  Email address
                 </label>
-                <div className="text-sm">
-                  <Link className="font-semibold text-white hover:text-indigo-500">
-                    Forgot password?
-                  </Link>
+                <div className="mt-2">
+                  <input
+                    ref={email}
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  />
                 </div>
               </div>
-              <div className="mt-2">
-                <input
-                  ref={password}
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  autoComplete="current-password"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
+
+              <div>
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="password"
+                    className="block text-sm/6 font-medium text-black"
+                  >
+                    Password
+                  </label>
+                  <div className="text-sm">
+                    <Link className="font-semibold text-black hover:text-indigo-500">
+                      Forgot password?
+                    </Link>
+                  </div>
+                </div>
+                <div className="mt-2">
+                  <input
+                    ref={password}
+                    id="password"
+                    name="password"
+                    type="password"
+                    required
+                    autoComplete="current-password"
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="text-red-800">{errorMessage}</div>
-            {loading && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
-                <div className="loader"></div>
+              <div className="text-red-800">{errorMessage}</div>
+              {loading && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
+                  <div className="loader"></div>
+                </div>
+              )}
+              <div>
+                <button
+                  type="submit"
+                  onClick={handleButtonClick}
+                  className="flex w-full justify-center rounded-md bg-gray-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Sign in
+                </button>
               </div>
-            )}
-            <div>
-              <button
-                type="submit"
-                onClick={handleButtonClick}
-                className="flex w-full justify-center rounded-md bg-gray-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Sign in
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

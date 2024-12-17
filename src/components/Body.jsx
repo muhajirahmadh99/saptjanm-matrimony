@@ -28,7 +28,6 @@ const Body = () => {
   return (
     <div>
       <Header />
-
       <CardsProfile />
       <Footer />
     </div>

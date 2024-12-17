@@ -1,37 +1,44 @@
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 const Header = () => {
   return (
     <div className="">
       <Navbar expand="lg" className="bg-body-secondary">
-        <Container fluid className="p-3">
-          <Navbar.Brand>Saptjanm Matrimony</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav className="mx-auto my-2 my-lg-0" navbarScroll>
-              <Nav.Link>
-                <Link className=" no-underline text-black" to={"/"}>
-                  Home
-                </Link>
-              </Nav.Link>
-              <Nav.Link>
-                <Link className=" no-underline text-black" to={""}>
-                  Services
-                </Link>
-              </Nav.Link>
-              <Nav.Link>
-                <Link className=" no-underline text-black" to={""}>
-                  About
-                </Link>
-              </Nav.Link>
-            </Nav>
-            <Link to={"/login"}>
-              <Button variant="outline-dark">Logout</Button>
+        <Container className="p-3">
+          <Navbar.Brand>
+            <Link
+              to={"/"}
+              className="text-2xl font-medium no-underline text-red-800"
+            >
+              Saptjanm Matrimony
             </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+
+          <Navbar.Collapse id="navbarScroll" className="flex lg:justify-end">
+            <Nav className="text-xl gap-3 " navbarScroll>
+              <Link
+                className=" no-underline text-gray-900 max-md:mt-3 hover:text-red-800"
+                to={"/"}
+              >
+                Home
+              </Link>
+
+              <Link
+                className=" no-underline text-gray-900 hover:text-red-800"
+                to={"/about"}
+              >
+                About
+              </Link>
+              <Link
+                className=" no-underline text-gray-900  max-md:mb-4 hover:text-red-800"
+                to={"/contact"}
+              >
+                Contact
+              </Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
