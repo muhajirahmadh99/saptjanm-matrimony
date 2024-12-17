@@ -25,18 +25,29 @@ const Header = () => {
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "no-underline text-red-800 underline"
+                    ? " text-red-800 no-underline"
                     : "no-underline text-gray-900 max-md:mt-3 hover:text-red-800 hover:underline"
                 }
               >
                 Home
+              </NavLink>
+              <NavLink
+                exact
+                to="/dashboard"
+                className={({ isActive }) =>
+                  isActive
+                    ? " text-red-800 no-underline"
+                    : "no-underline text-gray-900 max-md:mt-3 hover:text-red-800 hover:underline"
+                }
+              >
+                Dashboard
               </NavLink>
 
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
                   isActive
-                    ? "no-underline text-red-800 underline"
+                    ? " text-red-800 no-underline"
                     : "no-underline text-gray-900 hover:text-red-800 hover:underline"
                 }
               >
@@ -46,7 +57,7 @@ const Header = () => {
                 to="/contact"
                 className={({ isActive }) =>
                   isActive
-                    ? "no-underline text-red-800 underline"
+                    ? " text-red-800 no-underline"
                     : "no-underline text-gray-900 max-md:mb-4 hover:text-red-800 hover:underline"
                 }
               >

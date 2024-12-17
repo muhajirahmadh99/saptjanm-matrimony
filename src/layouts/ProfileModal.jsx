@@ -8,7 +8,7 @@ import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const ProfileModal = () => {
-  const [isSignInForm] = useState(false); // Assuming this is for sign-up
+  const [isSignInForm] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -19,7 +19,6 @@ const ProfileModal = () => {
   const descriptionRef = useRef(null);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -44,7 +43,7 @@ const ProfileModal = () => {
           password
         );
         console.log("User signed up:", userCredential.user);
-        navigate("/content");
+        navigate("/dashboard");
       } catch (error) {
         const errorCode = error.code;
         const errorMessage = error.message;

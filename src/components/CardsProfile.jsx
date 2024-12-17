@@ -12,7 +12,7 @@ const CardsProfile = () => {
       easeEach: "power2.inOut",
     },
     ease: "elastic",
-    duration: 5,
+    duration: 2,
     stagger: 0.2,
   });
   return (
