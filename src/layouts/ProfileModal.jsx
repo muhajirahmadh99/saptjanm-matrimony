@@ -6,6 +6,8 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useLoading } from "./LoadingContext";
+import { Spinner } from "react-bootstrap";
 
 const ProfileModal = () => {
   const [isSignInForm] = useState(false);
@@ -21,7 +23,8 @@ const ProfileModal = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const { setLoading } = useLoading();
+  const { loading } = useLoading();
   const handleButtonClick = async () => {
     const name = nameRef.current.value;
     const age = ageRef.current.value;
@@ -34,7 +37,7 @@ const ProfileModal = () => {
     const message = checkValidData(name, age, dob, gender, email, password, description);
     setErrorMessage(message);
     if (message) return;
-
+    setLoading(true);
     if (!isSignInForm) {
       try {
         const userCredential = await createUserWithEmailAndPassword(
@@ -44,11 +47,13 @@ const ProfileModal = () => {
         );
         console.log("User signed up:", userCredential.user);
         navigate("/dashboard");
+        setLoading(false);
       } catch (error) {
         const errorCode = error.code;
         const errorMessage = error.message;
         setErrorMessage(`${errorCode}: ${errorMessage}`);
         console.error("Error during sign up:", error);
+        setLoading(false);
       }
     }
   };
@@ -188,6 +193,11 @@ const ProfileModal = () => {
                 ></textarea>
               </div>
             </div>
+            {loading && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
+                  <Spinner className="w-10 h-10" animation="border" variant="light" />
+                </div>
+              )}
             <button
               type="submit"
               onClick={handleButtonClick}

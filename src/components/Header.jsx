@@ -21,7 +21,7 @@ const Header = () => {
           <Navbar.Collapse id="navbarScroll" className="flex lg:justify-end">
             <Nav className="text-xl gap-3" navbarScroll>
               <NavLink
-                exact
+                
                 to="/"
                 className={({ isActive }) =>
                   isActive
@@ -32,7 +32,7 @@ const Header = () => {
                 Home
               </NavLink>
               <NavLink
-                exact
+                
                 to="/dashboard"
                 className={({ isActive }) =>
                   isActive

@@ -7,6 +7,7 @@ import {
 } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoading } from "../layouts/LoadingContext";
+import { Spinner } from "react-bootstrap";
 
 const Login = () => {
   const { setLoading } = useLoading();
@@ -20,45 +21,24 @@ const Login = () => {
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
     if (message) return;
-
     setLoading(true);
-
-    if (!isSignInForm) {
-      createUserWithEmailAndPassword(
-        auth,
-        email.current.value,
-        password.current.value
-      )
-        .then((userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
-          setLoading(false);
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(errorCode + ": " + errorMessage);
-          setLoading(false);
-        });
-    } else {
-      signInWithEmailAndPassword(
-        auth,
-        email.current.value,
-        password.current.value
-      )
-        .then((userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
-          navigate("/dashboard");
-          setLoading(false);
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(errorCode + ": " + errorMessage);
-          setLoading(false);
-        });
-    }
+    signInWithEmailAndPassword(
+      auth,
+      email.current.value,
+      password.current.value
+    )
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        navigate("/dashboard");
+        setLoading(false);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setErrorMessage(errorCode + ": " + errorMessage);
+        setLoading(false);
+      });
   };
 
   return (
@@ -129,7 +109,7 @@ const Login = () => {
               <div className="text-red-800">{errorMessage}</div>
               {loading && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
-                  <div className="loader"></div>
+                  <Spinner className="w-10 h-10" animation="border" variant="light" />
                 </div>
               )}
               <div>

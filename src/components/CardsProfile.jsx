@@ -120,7 +120,10 @@ const CardsProfile = () => {
                 </div>
               </Dropdown.Item>
               <Dropdown.Item>
-                <div className="flex gap-2  p-2">
+                <Link
+                  to={"/login"}
+                  className="flex gap-2  p-2 text-black no-underline"
+                >
                   <div className="">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -138,11 +141,9 @@ const CardsProfile = () => {
                     </svg>
                   </div>
                   <div className="">
-                    <Link className="text-black no-underline" to={"/login"}>
-                      Logout
-                    </Link>
+                    <div className="">Logout</div>
                   </div>
-                </div>
+                </Link>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
